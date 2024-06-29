@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" type="image/x-icon" href="Zoho_Writer.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeZ CluB</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/1b70088c3b.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+      <div id="root">
+        <div class="container">
+          <div class="left">
+            <label><i class="fa-brands fa-html5"></i> HTML</label>
+            <textarea
+              id="html-code"
+              autocomplete="off"
+              oninput="run()"
+              placeholder="Type HTML here..."
+            ></textarea>
+
+            <label><i class="fa-brands fa-css3-alt"></i> CSS</label>
+            <textarea
+              id="css-code"
+              autocomplete="off"
+              oninput="run()"
+              placeholder="Type CSS here..."
+            ></textarea>
+
+            <label><i class="fa-brands fa-js"></i> JavaScript</label>
+            <textarea
+              id="js-code"
+              autocomplete="off"
+              oninput="run()"
+              placeholder="Type JavaScript here..."
+            ></textarea>
+          </div>
+          <div class="right">
+            <label><i class="fa-solid fa-play"></i> Output</label>
+            <iframe id="output"></iframe>
+          </div>
+        </div>
+
+        <div class="copyright">
+          <p>
+            Created By <a href="">ABHIGYAN SHRIVASTAVA</a> | All Rights
+            Reserved.
+          </p>
+        </div>
+    </div>
+
+    <script>
+      function run() {
+        let htmlCode = document.getElementById("html-code").value;
+        let cssCode = document.getElementById("css-code").value;
+        let jsCode = document.getElementById("js-code").value;
+        let output = document.getElementById("output");
+
+        output.contentDocument.body.innerHTML =
+          htmlCode + "<style>" + cssCode + "</style>";
+        output.contentWindow.eval(jsCode);
+      }
+    </script>
+  </body>
+</html>
